@@ -38,7 +38,7 @@ def json(request):
 
 class Jsons(View):
 
-    # restful的7种方法
+    # restful的7种方法， JsonResponse可以返回json格式的数据。
     def get(self, request, num):
         data = {"k1": "get"}
         print('num:', num)

@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, re_path
+from django.urls import path, re_path, include
 from django.conf.urls import url
 from app01 import views
 
@@ -27,5 +27,8 @@ urlpatterns = [
     path('json/', views.json),
     # cbv = class based view ,fbv = function base view
     re_path(r'cbv/json/(\d+)/', views.Jsons.as_view()),
-    re_path(r'cbv/json2/(?P<age>\d+)/', views.Jsons2.as_view())
+    re_path(r'cbv/json2/(?P<age>\d+)/', views.Jsons2.as_view()),
+
+    # app01开头的指向app01目录下的urls.py , 路由分发
+    path('app01/',include('app01.urls'))
 ]
